@@ -136,12 +136,19 @@ function notify(message) {
     }, 3000);
 
 }
-<nav>
-    <a href="index.html">Home</a>
-    <a href="markets.html">Markets</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="orders.html">Orders</a>
-    <a href="deposit.html">Deposit</a>
-    <a href="withdraw.html">Withdraw</a>
-    <a href="profile.html">Profile</a>
-</nav>
+const adminForm = document.getElementById("adminLoginForm");
+
+if (adminForm) {
+    adminForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById("adminEmail").value;
+        const password = document.getElementById("adminPassword").value;
+
+        if (email === "admin@tagmee.com" && password === "Admin123") {
+            window.location.href = "admin.html";
+        } else {
+            alert("Invalid administrator login.");
+        }
+    });
+}
